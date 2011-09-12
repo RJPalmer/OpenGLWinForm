@@ -1,0 +1,13 @@
+Program Title: OpenGLWinForm
+Program Author: Robert J. Palmer
+Date Created: August 31, 2011
+
+Program Description:
+A simple application created using Visual C++ Express Edition from Microsoft. Creates a Windows Form that renders a
+scene created with OpenGL
+
+Program Requirements:
+Latest version of Windows
+
+Comments
+9/12/2011 - README created
