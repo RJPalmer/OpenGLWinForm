@@ -16,8 +16,8 @@ namespace OpenGLForm
       public System::Windows::Forms::NativeWindow
 		  {
 			public:
-				COpenGL(System::Windows::Forms::Form ^ parentForm, 
-				GLsizei iWidth, GLsizei iHeight)
+				COpenGL(System::Windows::Forms::Panel ^ parentPanel, 
+				GLsizei startX, GLsizei startY, GLsizei iWidth, GLsizei iHeight)
 				{
 					CreateParams^ cp = gcnew CreateParams;
 
@@ -26,14 +26,14 @@ namespace OpenGLForm
 					
 					// Set the position on the form
 
-					cp->X = 0;
-					cp->Y = 0;
+					cp->X = startX - 40;
+					cp->Y = startY - 40;
 					cp->Height = iHeight;
 					cp->Width = iWidth;
 
 					// Specify the form as the parent.
 
-					cp->Parent = parentForm->Handle;
+					cp->Parent = parentPanel->Handle;
 
 					// Create as a child of the specified parent
 
@@ -77,7 +77,8 @@ namespace OpenGLForm
 					theta += 1.0f;
 
 		}
-		System::Void Redraw(System::Windows::Forms::Form ^ parentForm, GLsizei width, GLsizei height)
+		System::Void Redraw(System::Windows::Forms::Panel ^ parentPanel, GLsizei startX, GLsizei startY,
+			GLsizei width, GLsizei height)
 		{
 
 			if (height==0)										// Prevent A Divide By Zero By
@@ -96,7 +97,9 @@ namespace OpenGLForm
 			glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 			glLoadIdentity();
 
-			if(this)SetWindowPos((HWND)this->Handle.ToPointer(), NULL, 0, 0, width, height, SWP_NOZORDER | SWP_NOACTIVATE);	
+			if(this)
+				SetWindowPos((HWND)this->Handle.ToPointer(), NULL, startX - 40, startY -40, 
+					width, height, SWP_NOZORDER | SWP_NOACTIVATE);	
 			
 		}
 		System::Void SwapOpenGLBuffers(System::Void)

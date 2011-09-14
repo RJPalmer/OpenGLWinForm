@@ -20,14 +20,14 @@ Assembly Microsoft.VisualC, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b0
 	hash=None, flags=None
 Class OpenGLForm.COpenGL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.NativeWindow
-    Void .ctor(System.Windows.Forms.Form, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Windows.Forms.Panel, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:
     System.IDisposable
   Fields:
     Single theta : Public, Static
   Methods:
     Render(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
-    Redraw(Form, Int32, Int32): PrivateScope, Public, HideBySig
+    Redraw(Panel, Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
     SwapOpenGLBuffers(): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
 Class OpenGl.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
