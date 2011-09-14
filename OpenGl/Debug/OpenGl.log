@@ -1,4 +1,4 @@
-﻿Build started 9/14/2011 1:52:16 AM.
+﻿Build started 9/14/2011 2:50:56 AM.
      1>Project "C:\Documents and Settings\Palmer\My Documents\Visual Studio 2010\Projects\OpenGl\OpenGl\OpenGl.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\OpenGl.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -10,8 +10,7 @@
          OpenGl.cpp
          All outputs are up-to-date.
        CoreResGen:
-         "C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /compile Form1.resX,Debug\OpenGl.Form1.resources
-         Processing resource file "Form1.resX" into "Debug\OpenGl.Form1.resources".
+         All outputs are up-to-date.
        ResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -30,4 +29,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:18.25
+Time Elapsed 00:00:05.25

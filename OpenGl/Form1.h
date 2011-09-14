@@ -53,7 +53,10 @@ namespace OpenGl {
 	private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
 	private: System::Windows::Forms::Panel^  panelOptions;
-	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  btnRotateLeft;
+	private: System::Windows::Forms::Button^  btnRotateRight;
+
+
 
 
 
@@ -79,7 +82,8 @@ namespace OpenGl {
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->panelOptions = (gcnew System::Windows::Forms::Panel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnRotateLeft = (gcnew System::Windows::Forms::Button());
+			this->btnRotateRight = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->panelOptions->SuspendLayout();
 			this->SuspendLayout();
@@ -129,7 +133,8 @@ namespace OpenGl {
 			// 
 			// panelOptions
 			// 
-			this->panelOptions->Controls->Add(this->button1);
+			this->panelOptions->Controls->Add(this->btnRotateRight);
+			this->panelOptions->Controls->Add(this->btnRotateLeft);
 			this->panelOptions->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->panelOptions->Location = System::Drawing::Point(0, 276);
 			this->panelOptions->Name = L"panelOptions";
@@ -137,18 +142,31 @@ namespace OpenGl {
 			this->panelOptions->TabIndex = 1;
 			this->panelOptions->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel1_Paint);
 			// 
-			// button1
+			// btnRotateLeft
 			// 
-			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
+			this->btnRotateLeft->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
 				| System::Windows::Forms::AnchorStyles::Left) 
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->button1->Location = System::Drawing::Point(281, 23);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(183, 50);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"Rotate";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			this->btnRotateLeft->Location = System::Drawing::Point(39, 26);
+			this->btnRotateLeft->Name = L"btnRotateLeft";
+			this->btnRotateLeft->Size = System::Drawing::Size(183, 50);
+			this->btnRotateLeft->TabIndex = 0;
+			this->btnRotateLeft->Text = L"Rotate Left";
+			this->btnRotateLeft->UseVisualStyleBackColor = true;
+			this->btnRotateLeft->Click += gcnew System::EventHandler(this, &Form1::btnRotateLeft_Click);
+			// 
+			// btnRotateRight
+			// 
+			this->btnRotateRight->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
+				| System::Windows::Forms::AnchorStyles::Left) 
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->btnRotateRight->Location = System::Drawing::Point(480, 26);
+			this->btnRotateRight->Name = L"btnRotateRight";
+			this->btnRotateRight->Size = System::Drawing::Size(183, 50);
+			this->btnRotateRight->TabIndex = 1;
+			this->btnRotateRight->Text = L"Rotate Right";
+			this->btnRotateRight->UseVisualStyleBackColor = true;
+			this->btnRotateRight->Click += gcnew System::EventHandler(this, &Form1::btnRotateRight_Click);
 			// 
 			// Form1
 			// 
@@ -181,10 +199,9 @@ UNREFERENCED_PARAMETER(sender);
 				 openGL->SwapOpenGLBuffers();
 			 }
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-				/*				 
-				openGL->theta += 0.01f;
+				
+				openGL->theta += theta;
 				this->Invalidate();
-				*/
 			 }
 	private: System::Void Form1_ResizeEnd(System::Object^  sender, System::EventArgs^  e) {
 				 openGL->Redraw(this->panelGraphics, this->panelGraphics->Location.X, 
@@ -200,8 +217,12 @@ UNREFERENCED_PARAMETER(sender);
 			 }
 private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				openGL->theta += 0.01f;
+private: System::Void btnRotateLeft_Click(System::Object^  sender, System::EventArgs^  e) {
+				theta = 0.5f;
+				//this->Invalidate();
+		 }
+private: System::Void btnRotateRight_Click(System::Object^  sender, System::EventArgs^  e) {
+				theta = -0.5f;
 				this->Invalidate();
 		 }
 };

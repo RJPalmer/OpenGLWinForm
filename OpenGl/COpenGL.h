@@ -72,10 +72,18 @@ namespace OpenGLForm
 					glColor3f (0.0f, 1.0f, 0.0f);   glVertex2f (0.87f, -0.5f);
 					glColor3f (0.0f, 0.0f, 1.0f);   glVertex2f (-0.87f, -0.5f);
 					glEnd ();
-					glPopMatrix ();
+			glPopMatrix ();
 
-					theta += 1.0f;
+			
+		}
 
+		/**
+		*rotateShape() - Rotates a given shape
+		*param theta - angle to rotate at
+		*/
+		System::Void rotateShape(float theta)
+		{
+			this->theta = theta;
 		}
 		System::Void Redraw(System::Windows::Forms::Panel ^ parentPanel, GLsizei startX, GLsizei startY,
 			GLsizei width, GLsizei height)
