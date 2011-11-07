@@ -52,9 +52,9 @@ namespace OpenGl {
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
-	private: System::Windows::Forms::Panel^  panelOptions;
-	private: System::Windows::Forms::Button^  btnRotateLeft;
-	private: System::Windows::Forms::Button^  btnRotateRight;
+
+
+
 
 
 
@@ -81,11 +81,7 @@ namespace OpenGl {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->panelOptions = (gcnew System::Windows::Forms::Panel());
-			this->btnRotateLeft = (gcnew System::Windows::Forms::Button());
-			this->btnRotateRight = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
-			this->panelOptions->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -131,50 +127,12 @@ namespace OpenGl {
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::exitToolStripMenuItem_Click);
 			// 
-			// panelOptions
-			// 
-			this->panelOptions->Controls->Add(this->btnRotateRight);
-			this->panelOptions->Controls->Add(this->btnRotateLeft);
-			this->panelOptions->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->panelOptions->Location = System::Drawing::Point(0, 276);
-			this->panelOptions->Name = L"panelOptions";
-			this->panelOptions->Size = System::Drawing::Size(732, 100);
-			this->panelOptions->TabIndex = 1;
-			this->panelOptions->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel1_Paint);
-			// 
-			// btnRotateLeft
-			// 
-			this->btnRotateLeft->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->btnRotateLeft->Location = System::Drawing::Point(39, 26);
-			this->btnRotateLeft->Name = L"btnRotateLeft";
-			this->btnRotateLeft->Size = System::Drawing::Size(183, 50);
-			this->btnRotateLeft->TabIndex = 0;
-			this->btnRotateLeft->Text = L"Rotate Left";
-			this->btnRotateLeft->UseVisualStyleBackColor = true;
-			this->btnRotateLeft->Click += gcnew System::EventHandler(this, &Form1::btnRotateLeft_Click);
-			// 
-			// btnRotateRight
-			// 
-			this->btnRotateRight->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->btnRotateRight->Location = System::Drawing::Point(480, 26);
-			this->btnRotateRight->Name = L"btnRotateRight";
-			this->btnRotateRight->Size = System::Drawing::Size(183, 50);
-			this->btnRotateRight->TabIndex = 1;
-			this->btnRotateRight->Text = L"Rotate Right";
-			this->btnRotateRight->UseVisualStyleBackColor = true;
-			this->btnRotateRight->Click += gcnew System::EventHandler(this, &Form1::btnRotateRight_Click);
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(732, 376);
-			this->Controls->Add(this->panelOptions);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->panelGraphics);
 			this->Name = L"Form1";
@@ -183,10 +141,10 @@ namespace OpenGl {
 			this->ResizeBegin += gcnew System::EventHandler(this, &Form1::Form1_ResizeEnd);
 			this->ResizeEnd += gcnew System::EventHandler(this, &Form1::Form1_ResizeEnd);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::Form1_Paint);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Form1::Form1_KeyDown);
 			this->Resize += gcnew System::EventHandler(this, &Form1::Form1_ResizeEnd);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->panelOptions->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -224,6 +182,21 @@ private: System::Void btnRotateLeft_Click(System::Object^  sender, System::Event
 private: System::Void btnRotateRight_Click(System::Object^  sender, System::EventArgs^  e) {
 				theta = -0.5f;
 				this->Invalidate();
+		 }
+private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+			 if(e->KeyCode == Keys::R){
+				 theta = -0.5f;
+				this->Invalidate();
+			 }
+
+			 if(e->KeyCode == Keys::L){
+				 theta = 0.5f;
+			 }
+
+			 if(e->KeyCode == Keys::Escape){
+				 this->Close();
+			 }
+			 
 		 }
 };
 }
